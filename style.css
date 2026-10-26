@@ -1,0 +1,201 @@
+body {
+    background-color: #05050A;
+    color: white;
+    overflow-x: hidden;
+    cursor: none;
+}
+
+/* Custom Glowing Cursor */
+.cursor-dot, .cursor-outline {
+    position: fixed;
+    top: 0; left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+.cursor-dot {
+    width: 5px; height: 5px;
+    background-color: #00F0FF;
+}
+.cursor-outline {
+    width: 30px; height: 30px;
+    border: 1px solid rgba(139, 92, 246, 0.5);
+    transition: transform 0.1s ease-out, width 0.2s, height 0.2s;
+}
+
+/* Disable custom cursor on touch devices */
+@media (pointer: coarse) {
+    body { cursor: auto; }
+    .cursor-dot, .cursor-outline { display: none; }
+}
+
+/* Gradient Text */
+.text-gradient {
+    background: linear-gradient(90deg, #00F0FF, #8B5CF6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism */
+.glass {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Wireframe-to-Reality Split Slider (Concept 2) */
+.split-slider-container {
+    position: relative;
+    width: 100%;
+    min-height: 520px;
+    height: 520px;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    user-select: none;
+    -webkit-user-select: none;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+    background-color: #07070b;
+}
+
+.split-layer-prod {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #090a10;
+}
+
+.split-layer-wireframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    border-right: 2px solid #00F0FF;
+    box-shadow: 2px 0 25px rgba(0, 240, 255, 0.6);
+    z-index: 10;
+    background: #04060c;
+}
+
+.split-layer-wireframe-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.split-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 44px;
+    transform: translateX(-50%);
+    cursor: ew-resize;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.split-handle-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #00F0FF;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.7);
+    pointer-events: auto;
+    cursor: ew-resize;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.split-handle-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.9);
+}
+
+.cad-grid {
+    background-size: 20px 20px;
+    background-image: 
+        linear-gradient(to right, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Marquee Tracks */
+.marquee-track {
+    display: flex;
+    width: 200%;
+    animation: marquee 20s linear infinite;
+}
+.marquee-track.reverse {
+    animation: marquee-reverse 25s linear infinite;
+}
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+@keyframes marquee-reverse { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+
+/* Outline Text */
+.text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+}
+
+/* Neon Glow Hover */
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.1);
+    border-color: rgba(139, 92, 246, 0.5);
+}
+
+/* Blinking Cursor (Standard & Razor) */
+.blink { animation: blink 1s step-end infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+.cursor-razor {
+    display: inline-block;
+    width: 8px;
+    height: 14px;
+    background-color: #00F0FF;
+    vertical-align: middle;
+    margin-left: 4px;
+    animation: blink 1s step-end infinite;
+}
+
+/* Canvas BG */
+#particle-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* Footer Specific Styles */
+.cta-text {
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255,255,255,0.1);
+    transition: all 0.5s ease;
+    position: relative;
+}
+.cta-text:hover {
+    color: #ffffff;
+    -webkit-text-stroke: 0px;
+    text-shadow: 0 0 30px rgba(0, 240, 255, 0.5), 0 0 60px rgba(139, 92, 246, 0.3);
+    transform: scale(1.02);
+}
+
+.glitch-block:hover .glitch-text {
+    animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+    color: white;
+    text-shadow: 2px 0 #00F0FF, -2px 0 #8B5CF6;
+}
