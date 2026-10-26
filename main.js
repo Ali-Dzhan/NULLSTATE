@@ -172,11 +172,11 @@ window.addEventListener('scroll', () => {
 
     const header = document.getElementById('header');
     if (winScroll > 50) {
-        header.classList.add('bg-black/80', 'backdrop-blur-md', 'border-b', 'border-white/10', 'py-4');
-        header.classList.remove('bg-void/0', 'py-6');
+        header.classList.add('bg-black/90', 'backdrop-blur-md', 'border-b', 'border-white/10', 'py-3', 'md:py-4');
+        header.classList.remove('bg-void/0', 'py-4', 'md:py-6');
     } else {
-        header.classList.remove('bg-black/80', 'backdrop-blur-md', 'border-b', 'border-white/10', 'py-4');
-        header.classList.add('bg-void/0', 'py-6');
+        header.classList.remove('bg-black/90', 'backdrop-blur-md', 'border-b', 'border-white/10', 'py-3', 'md:py-4');
+        header.classList.add('bg-void/0', 'py-4', 'md:py-6');
     }
 });
 
@@ -216,11 +216,15 @@ function setSplitPosition(clientX) {
 
 if (splitSlider) {
     window.addEventListener('resize', updateWireframeWidth);
+    window.addEventListener('orientationchange', () => {
+        setTimeout(updateWireframeWidth, 150);
+    });
     window.addEventListener('load', updateWireframeWidth);
     setTimeout(updateWireframeWidth, 50);
 
     splitSlider.addEventListener('mousedown', (e) => {
         isSplitDragging = true;
+        playClickSound();
         setSplitPosition(e.clientX);
     });
 
@@ -236,6 +240,7 @@ if (splitSlider) {
 
     splitSlider.addEventListener('touchstart', (e) => {
         isSplitDragging = true;
+        playClickSound();
         setSplitPosition(e.touches[0].clientX);
     }, { passive: true });
 
@@ -248,6 +253,27 @@ if (splitSlider) {
             setSplitPosition(e.touches[0].clientX);
         }
     }, { passive: true });
+}
+
+/* === Mobile Navigation Drawer === */
+function toggleMobileNav() {
+    const drawer = document.getElementById('mobile-drawer');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+    playClickSound();
+
+    if (drawer) {
+        const isHidden = drawer.classList.contains('hidden');
+        if (isHidden) {
+            drawer.classList.remove('hidden');
+            if (menuIcon) menuIcon.classList.add('hidden');
+            if (closeIcon) closeIcon.classList.remove('hidden');
+        } else {
+            drawer.classList.add('hidden');
+            if (menuIcon) menuIcon.classList.remove('hidden');
+            if (closeIcon) closeIcon.classList.add('hidden');
+        }
+    }
 }
 
 /* === Terminal Modal Logic === */
