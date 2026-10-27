@@ -1,34 +1,81 @@
-/* === UI Audio Synthesizer === */
-const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+/* === UI Audio Synthesizer & Sound Controls === */
+let audioCtx = null;
+let isAudioEnabled = localStorage.getItem('nullstate_sfx') !== 'muted';
+
+function getAudioContext() {
+    if (!audioCtx) {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioContextClass) audioCtx = new AudioContextClass();
+    }
+    if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+    }
+    return audioCtx;
+}
+
+function toggleAudio() {
+    isAudioEnabled = !isAudioEnabled;
+    localStorage.setItem('nullstate_sfx', isAudioEnabled ? 'active' : 'muted');
+    updateAudioUI();
+    if (isAudioEnabled) playClickSound();
+}
+
+function updateAudioUI() {
+    document.querySelectorAll('.sfx-toggle-btn').forEach(btn => {
+        const label = btn.querySelector('.sfx-label');
+        const eq = btn.querySelector('.eq-container');
+        if (isAudioEnabled) {
+            btn.classList.remove('border-white/10', 'text-gray-500');
+            btn.classList.add('border-neon-cyan/40', 'text-neon-cyan');
+            if (label) label.innerText = 'SFX: ON';
+            if (eq) {
+                eq.classList.remove('eq-muted');
+                eq.classList.add('eq-active');
+            }
+        } else {
+            btn.classList.remove('border-neon-cyan/40', 'text-neon-cyan');
+            btn.classList.add('border-white/10', 'text-gray-500');
+            if (label) label.innerText = 'SFX: MUTED';
+            if (eq) {
+                eq.classList.remove('eq-active');
+                eq.classList.add('eq-muted');
+            }
+        }
+    });
+}
 
 function playHoverSound() {
-    if(audioCtx.state === 'suspended') audioCtx.resume();
-    const osc = audioCtx.createOscillator();
-    const gainNode = audioCtx.createGain();
+    if (!isAudioEnabled) return;
+    const ctx = getAudioContext();
+    if (!ctx) return;
+    const osc = ctx.createOscillator();
+    const gainNode = ctx.createGain();
     osc.type = 'sine';
-    osc.frequency.setValueAtTime(800, audioCtx.currentTime);
-    osc.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.05);
-    gainNode.gain.setValueAtTime(0.02, audioCtx.currentTime);
-    gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+    osc.frequency.setValueAtTime(800, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(1200, ctx.currentTime + 0.05);
+    gainNode.gain.setValueAtTime(0.02, ctx.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
     osc.connect(gainNode);
-    gainNode.connect(audioCtx.destination);
+    gainNode.connect(ctx.destination);
     osc.start();
-    osc.stop(audioCtx.currentTime + 0.05);
+    osc.stop(ctx.currentTime + 0.05);
 }
 
 function playClickSound() {
-    if(audioCtx.state === 'suspended') audioCtx.resume();
-    const osc = audioCtx.createOscillator();
-    const gainNode = audioCtx.createGain();
+    if (!isAudioEnabled) return;
+    const ctx = getAudioContext();
+    if (!ctx) return;
+    const osc = ctx.createOscillator();
+    const gainNode = ctx.createGain();
     osc.type = 'square';
-    osc.frequency.setValueAtTime(150, audioCtx.currentTime);
-    osc.frequency.exponentialRampToValueAtTime(50, audioCtx.currentTime + 0.1);
-    gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime);
-    gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
+    osc.frequency.setValueAtTime(150, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(50, ctx.currentTime + 0.1);
+    gainNode.gain.setValueAtTime(0.05, ctx.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
     osc.connect(gainNode);
-    gainNode.connect(audioCtx.destination);
+    gainNode.connect(ctx.destination);
     osc.start();
-    osc.stop(audioCtx.currentTime + 0.1);
+    osc.stop(ctx.currentTime + 0.1);
 }
 
 document.addEventListener('mouseover', (e) => {
@@ -37,6 +84,30 @@ document.addEventListener('mouseover', (e) => {
 document.addEventListener('click', (e) => {
     if (e.target.closest('.click-sound')) playClickSound();
 });
+
+// Initialize SFX UI on page load
+setTimeout(updateAudioUI, 10);
+
+/* === Interactive Cyber Toggle Component === */
+function toggleCyberComponent(el) {
+    el.classList.toggle('active');
+    playClickSound();
+    const statusText = document.getElementById('toggle-status-text');
+    if (statusText) {
+        statusText.innerText = el.classList.contains('active') ? 'STATE: ACTIVE [1]' : 'STATE: IDLE [0]';
+        statusText.className = el.classList.contains('active') ? 'text-neon-cyan font-bold text-xs' : 'text-gray-400 font-normal text-xs';
+    }
+}
+
+function selectDesignToken(btn) {
+    playClickSound();
+    const parent = btn.parentElement;
+    if (!parent) return;
+    parent.querySelectorAll('button').forEach(b => {
+        b.className = 'flex-1 py-1 text-center rounded text-gray-400 hover:text-white transition-colors click-sound hover-target';
+    });
+    btn.className = 'flex-1 py-1 text-center rounded bg-neon-cyan/20 text-neon-cyan border border-neon-cyan/40 click-sound hover-target font-bold';
+}
 
 /* === WebGL-style Particle Canvas === */
 const canvas = document.getElementById('particle-canvas');
