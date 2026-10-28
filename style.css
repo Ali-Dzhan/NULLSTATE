@@ -58,29 +58,29 @@ body {
 .split-slider-container {
     position: relative;
     width: 100%;
-    min-height: 380px;
-    height: 380px;
+    min-height: 480px;
+    height: 480px;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.12);
     user-select: none;
     -webkit-user-select: none;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
     background-color: #07070b;
-    touch-action: none;
+    touch-action: pan-y;
 }
 
 @media (min-width: 640px) {
     .split-slider-container {
-        height: 420px;
-        min-height: 420px;
+        height: 520px;
+        min-height: 520px;
     }
 }
 
 @media (min-width: 1024px) {
     .split-slider-container {
-        height: 480px;
-        min-height: 480px;
+        height: 560px;
+        min-height: 560px;
     }
 }
 
@@ -159,6 +159,7 @@ body {
     box-shadow: 0 0 25px rgba(0, 240, 255, 0.9);
     pointer-events: auto;
     cursor: ns-resize;
+    touch-action: none;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 

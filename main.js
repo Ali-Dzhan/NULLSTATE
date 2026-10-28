@@ -329,13 +329,15 @@ if (splitSlider) {
         }
     });
 
-    splitSlider.addEventListener('touchstart', (e) => {
-        isSplitDragging = true;
-        if (wireframePanel) wireframePanel.style.transition = '';
-        if (splitHandle) splitHandle.style.transition = '';
-        playClickSound();
-        setSplitPosition(e.touches[0].clientY);
-    }, { passive: true });
+    if (splitHandle) {
+        splitHandle.addEventListener('touchstart', (e) => {
+            isSplitDragging = true;
+            if (wireframePanel) wireframePanel.style.transition = '';
+            if (splitHandle) splitHandle.style.transition = '';
+            playClickSound();
+            setSplitPosition(e.touches[0].clientY);
+        }, { passive: true });
+    }
 
     window.addEventListener('touchend', () => {
         isSplitDragging = false;
@@ -405,90 +407,6 @@ function closeTerminal() {
     terminal.style.display = 'none';
 }
 
-/* === Flagship Project Switcher in #work === */
-const projectData = [
-    {
-        title: "VAULT // Next-Gen Digital Banking & Asset OS",
-        tech: "Next.js 15 • Stripe Core • WebSockets",
-        prodUrl: "vault.finance/accounts",
-        prodBadge: "ENCRYPTED & LIVE",
-        wireUrl: "[CAD: FINTECH_CORE]"
-    },
-    {
-        title: "KRONOS // Distributed Neural Pipeline & Real-Time Inference",
-        tech: "Rust Core • PyTorch • Triton Edge • gRPC",
-        prodUrl: "kronos.network/cluster-07",
-        prodBadge: "NEURAL INFERENCE: 4.2ms",
-        wireUrl: "[CAD: NEURAL_TENSOR_NPU]"
-    },
-    {
-        title: "AETHER // Autonomous Spatial Commerce & WebGL Showroom",
-        tech: "Three.js • WebGL 2.0 • WebGPU • Shopify Headless",
-        prodUrl: "aether.studio/spatial-viewport",
-        prodBadge: "WEBGL 60FPS: STREAMING",
-        wireUrl: "[CAD: SPATIAL_MESH_PIPELINE]"
-    }
-];
+/* === Flagship Production Project: VAULT OS === */
+// Single flagship showcase active - dimensions auto-calculated on load & resize
 
-let currentProjectIndex = 0;
-
-function switchProject(index) {
-    if (index === currentProjectIndex) return;
-    currentProjectIndex = index;
-    playClickSound();
-
-    // Update Project Switcher tabs
-    for (let i = 0; i < 3; i++) {
-        const tab = document.getElementById(`proj-tab-${i}`);
-        if (!tab) continue;
-        const num = tab.querySelector('.tab-num');
-        const title = tab.querySelector('.tab-title');
-        if (i === index) {
-            tab.classList.add('active');
-            if (num) { num.classList.remove('text-gray-500'); num.classList.add('text-neon-cyan'); }
-            if (title) { title.classList.remove('text-gray-400'); title.classList.add('text-white'); }
-        } else {
-            tab.classList.remove('active');
-            if (num) { num.classList.remove('text-neon-cyan'); num.classList.add('text-gray-500'); }
-            if (title) { title.classList.remove('text-white'); title.classList.add('text-gray-400'); }
-        }
-    }
-
-    // Update Header metadata
-    const proj = projectData[index];
-    const subtitle = document.getElementById('project-subtitle');
-    const badge = document.getElementById('project-tech-badge');
-    if (subtitle) subtitle.innerText = proj.title;
-    if (badge) badge.innerText = proj.tech;
-
-    // Update Title bars in slider
-    const prodUrl = document.getElementById('prod-title-url');
-    const prodBadge = document.getElementById('prod-title-badge');
-    const wireUrl = document.getElementById('wire-title-url');
-    if (prodUrl) prodUrl.innerText = proj.prodUrl;
-    if (prodBadge) prodBadge.innerHTML = `<span class="hidden sm:inline">${proj.prodBadge.split(':')[0]} </span>${proj.prodBadge.includes(':') ? proj.prodBadge.split(':')[1] : proj.prodBadge}`;
-    if (wireUrl) wireUrl.innerText = proj.wireUrl;
-
-    // Switch Views in Production and Wireframe layers
-    for (let i = 0; i < 3; i++) {
-        const prodView = document.getElementById(`proj-view-prod-${i}`);
-        const wireView = document.getElementById(`proj-view-wire-${i}`);
-        if (prodView) {
-            if (i === index) {
-                prodView.classList.add('active');
-            } else {
-                prodView.classList.remove('active');
-            }
-        }
-        if (wireView) {
-            if (i === index) {
-                wireView.classList.add('active');
-            } else {
-                wireView.classList.remove('active');
-            }
-        }
-    }
-
-    // Recalculate slider dimensions
-    setTimeout(updateWireframeDimensions, 30);
-}
