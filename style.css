@@ -317,3 +317,62 @@ body {
     background: #00F0FF;
     box-shadow: 0 0 6px #00F0FF;
 }
+
+/* Flagship Project Switcher Tabs */
+.project-tab {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #9ca3af;
+}
+.project-tab:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(0, 240, 255, 0.3);
+    color: #ffffff;
+}
+.project-tab.active {
+    background: rgba(0, 240, 255, 0.12);
+    border-color: #00F0FF;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+}
+
+/* Project View Fade Transitions */
+.project-view {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+}
+.project-view.active {
+    display: flex;
+    opacity: 1;
+}
+
+/* Enhanced Dotted Timeline Rail */
+.pipeline-pulse-beam {
+    position: absolute;
+    left: -2px;
+    top: 0;
+    width: 2px;
+    height: 120px;
+    background: linear-gradient(180deg, transparent, #00F0FF 50%, transparent);
+    animation: pipeline-pulse 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    pointer-events: none;
+    box-shadow: 0 0 10px #00F0FF;
+}
+
+@keyframes pipeline-pulse {
+    0% { top: 0%; opacity: 0; }
+    15% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { top: calc(100% - 120px); opacity: 0; }
+}
+
+/* Scrollbar hiding for horizontal pill bars */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+

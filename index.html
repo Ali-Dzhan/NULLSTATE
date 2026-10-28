@@ -3,7 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NULLSTATE | Digital Architecture</title>
+    <title>NULLSTATE | Digital Architecture & High-Performance Systems</title>
+    
+    <!-- Primary SEO Metadata -->
+    <meta name="description" content="NULLSTATE — Bespoke digital architecture studio engineering high-performance web applications, brutalist interfaces, and scalable SEO infrastructures.">
+    <meta name="keywords" content="digital architecture, brutalist web design, next.js engineering, high-performance web apps, technical SEO architecture, cyber design systems">
+    <meta name="author" content="NULLSTATE Digital Architecture">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#05050A">
+    
+    <!-- Open Graph / Facebook / Discord -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nullstate.agency/">
+    <meta property="og:site_name" content="NULLSTATE">
+    <meta property="og:title" content="NULLSTATE | Systems Built For Scale">
+    <meta property="og:description" content="We engineer high-performance web applications, brutalist interfaces, and scalable SEO infrastructures.">
+    <meta property="og:image" content="https://nullstate.agency/og-preview.png">
+    
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@nullstate">
+    <meta name="twitter:title" content="NULLSTATE | Digital Architecture Studio">
+    <meta name="twitter:description" content="High-performance web applications, brutalist interfaces, and scalable SEO infrastructures.">
+    <meta name="twitter:image" content="https://nullstate.agency/og-preview.png">
+    
+    <!-- Cyberpunk Inline SVG Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2305050A'/%3E%3Cpath d='M25 75V25h12l26 36V25h12v50H63L37 39v36H25z' fill='%2300F0FF'/%3E%3Ccircle cx='80' cy='30' r='6' fill='%238B5CF6'/%3E%3C/svg%3E">
+    
+    <!-- JSON-LD Structured Data Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "NULLSTATE Digital Architecture",
+        "url": "https://nullstate.agency",
+        "description": "High-performance digital architecture studio engineering bespoke web applications, brutalist interfaces, and scalable SEO infrastructures.",
+        "areaServed": "Global",
+        "priceRange": "$$$$",
+        "knowsAbout": ["Full-Stack Engineering", "Design Systems", "Technical SEO", "High-Performance Web Architecture"]
+    }
+    </script>
     
     <!-- External Fonts & Frameworks -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -279,23 +318,39 @@
         <!-- Production Showcase (Concept 2: Wireframe-to-Reality Slider) -->
         <section id="work" class="py-20 md:py-32 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto border-t border-white/10">
             <!-- Section Header -->
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 md:gap-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4 md:gap-6">
                 <div>
                     <h2 class="font-display text-3xl sm:text-4xl md:text-5xl uppercase">
                         <span class="text-neon-purple">02.</span> Production
                     </h2>
-                    <p class="text-xs md:text-sm text-gray-400 mt-2 font-mono">
+                    <p id="project-subtitle" class="text-xs md:text-sm text-gray-400 mt-2 font-mono">
                         VAULT // Next-Gen Digital Banking & Asset OS
                     </p>
                 </div>
                 <div class="flex items-center gap-2 sm:gap-3">
-                    <span class="text-[11px] sm:text-xs font-mono uppercase tracking-widest text-neon-cyan bg-neon-cyan/10 px-3 py-1.5 rounded border border-neon-cyan/20">
+                    <span id="project-tech-badge" class="text-[11px] sm:text-xs font-mono uppercase tracking-widest text-neon-cyan bg-neon-cyan/10 px-3 py-1.5 rounded border border-neon-cyan/20">
                         Next.js 15 • Stripe Core • WebSockets
                     </span>
                     <button onclick="openTerminal(); return false;" class="hidden sm:inline-block border border-white/20 hover:border-neon-cyan text-xs font-mono uppercase tracking-widest px-4 py-1.5 rounded text-white hover:text-neon-cyan transition-colors hover-target click-sound">
                         Launch Demo ↗
                     </button>
                 </div>
+            </div>
+
+            <!-- Project Switcher Tabs -->
+            <div class="flex items-center gap-2 sm:gap-3 overflow-x-auto pb-3 mb-6 scrollbar-none no-scrollbar">
+                <button onclick="switchProject(0)" id="proj-tab-0" class="project-tab active whitespace-nowrap px-3.5 sm:px-4 py-2 rounded text-xs font-mono tracking-wider border transition-all flex items-center gap-2 click-sound hover-target">
+                    <span class="tab-num text-neon-cyan font-bold">01</span>
+                    <span class="tab-title text-white">VAULT // FINTECH OS</span>
+                </button>
+                <button onclick="switchProject(1)" id="proj-tab-1" class="project-tab whitespace-nowrap px-3.5 sm:px-4 py-2 rounded text-xs font-mono tracking-wider border transition-all flex items-center gap-2 click-sound hover-target">
+                    <span class="tab-num text-gray-500 font-bold">02</span>
+                    <span class="tab-title text-gray-400">KRONOS // AI NEURAL PIPELINE</span>
+                </button>
+                <button onclick="switchProject(2)" id="proj-tab-2" class="project-tab whitespace-nowrap px-3.5 sm:px-4 py-2 rounded text-xs font-mono tracking-wider border transition-all flex items-center gap-2 click-sound hover-target">
+                    <span class="tab-num text-gray-500 font-bold">03</span>
+                    <span class="tab-title text-gray-400">AETHER // SPATIAL COMMERCE</span>
+                </button>
             </div>
 
             <!-- Interactive Split Slider -->
@@ -311,17 +366,19 @@
                                 <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80"></div>
                             </div>
                             <span class="text-gray-600 hidden xs:inline">|</span>
-                            <span class="text-gray-300 text-[11px] sm:text-xs truncate">vault.finance/accounts</span>
+                            <span id="prod-title-url" class="text-gray-300 text-[11px] sm:text-xs truncate">vault.finance/accounts</span>
                         </div>
                         <div class="flex items-center gap-1.5 sm:gap-2 text-green-400 font-bold text-[10px] sm:text-[11px] shrink-0">
                             <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-400 animate-pulse"></span>
-                            <span class="hidden sm:inline">ENCRYPTED & </span>LIVE
+                            <span id="prod-title-badge"><span class="hidden sm:inline">ENCRYPTED & </span>LIVE</span>
                         </div>
                     </div>
 
                     <!-- Production UI Body -->
                     <div class="flex-1 p-4 sm:p-6 md:p-8 flex flex-col justify-center bg-gradient-to-br from-[#0b0c14] via-[#07080d] to-[#040407]">
-                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-center w-full">
+                        <!-- Project 0: VAULT Finished UI -->
+                        <div id="proj-view-prod-0" class="project-view active w-full">
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-center w-full">
                             
                             <!-- Left: Virtual Card Preview (Only element on mobile/tablet) -->
                             <div class="lg:col-span-5 w-full flex justify-center">
@@ -412,6 +469,213 @@
                             </div>
 
                         </div>
+                        </div> <!-- End #proj-view-prod-0 -->
+
+                        <!-- Project 1: KRONOS Finished UI -->
+                        <div id="proj-view-prod-1" class="project-view w-full">
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-center w-full">
+                                <!-- Left: Neural Core Processor Preview (Only element on mobile/tablet) -->
+                                <div class="lg:col-span-5 w-full flex justify-center">
+                                    <div class="w-full max-w-[280px] sm:max-w-[340px] aspect-[1.586/1] rounded-2xl p-4 sm:p-5 border border-purple-500/30 bg-gradient-to-tr from-[#160d28] via-[#0d0918] to-[#06040c] shadow-2xl relative overflow-hidden flex flex-col justify-between">
+                                        <div class="absolute -right-12 -top-12 w-40 h-40 bg-neon-purple/20 rounded-full blur-2xl pointer-events-none"></div>
+
+                                        <div class="flex justify-between items-center relative z-10">
+                                            <div class="flex items-center gap-2">
+                                                <span class="w-2 h-2 rounded-full bg-neon-purple animate-ping"></span>
+                                                <span class="font-display font-black tracking-widest text-base sm:text-lg text-white">KRONOS</span>
+                                            </div>
+                                            <span class="font-mono text-[9px] sm:text-[10px] text-neon-purple border border-neon-purple/40 px-2 py-0.5 rounded bg-neon-purple/10">NPU // TENSOR-X</span>
+                                        </div>
+
+                                        <!-- Central Neural Silicon Die -->
+                                        <div class="relative z-10 my-1 flex items-center gap-3">
+                                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-tr from-purple-900 via-indigo-950 to-purple-800 border border-purple-400/50 relative overflow-hidden flex items-center justify-center shadow-[0_0_15px_rgba(139,92,246,0.5)] shrink-0">
+                                                <div class="w-4 h-4 rounded-sm bg-neon-cyan/40 border border-neon-cyan animate-pulse"></div>
+                                                <div class="absolute inset-0 bg-[radial-gradient(#8B5CF6_1px,transparent_1px)] [background-size:4px_4px]"></div>
+                                            </div>
+                                            <div class="min-w-0">
+                                                <div class="font-mono text-white text-xs sm:text-sm font-bold tracking-wider truncate">K-900 TENSOR ENGINE</div>
+                                                <div class="font-mono text-[9px] sm:text-[10px] text-gray-400 flex items-center gap-2 mt-0.5">
+                                                    <span class="text-neon-cyan">LATENCY: 4.2ms</span>
+                                                    <span>•</span>
+                                                    <span class="text-purple-300">TPU: 94.8%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex justify-between items-end text-[11px] sm:text-xs font-mono relative z-10">
+                                            <div>
+                                                <span class="text-[8px] sm:text-[9px] text-gray-500 uppercase tracking-widest block">Active Pipeline</span>
+                                                <span class="text-purple-200 font-bold uppercase tracking-wider text-[11px] sm:text-xs">LLM_INFERENCE_v4</span>
+                                            </div>
+                                            <div class="text-right">
+                                                <span class="text-[8px] sm:text-[9px] text-gray-500 uppercase tracking-widest block">Throughput</span>
+                                                <span class="text-neon-cyan font-bold text-[11px] sm:text-xs">284K TOK/S</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Right: Telemetry (Hidden on mobile) -->
+                                <div class="hidden lg:flex lg:col-span-7 flex-col justify-between gap-3 sm:gap-4">
+                                    <div>
+                                        <span class="text-[11px] sm:text-xs text-gray-400 uppercase tracking-widest font-mono block">Inference Throughput</span>
+                                        <div class="flex flex-wrap items-baseline gap-2 sm:gap-3 mt-1">
+                                            <span class="text-2xl sm:text-4xl font-display font-black text-white tracking-tight">284,500 <span class="text-xs sm:text-base text-gray-400 font-mono">tokens/sec</span></span>
+                                            <span class="inline-flex items-center gap-1 text-[11px] sm:text-xs text-purple-400 bg-purple-500/10 px-2 sm:px-2.5 py-0.5 rounded border border-purple-500/20 font-mono">
+                                                 ⚡ 4.2ms P99 Latency <span class="text-gray-400 hidden sm:inline">(8x Tensor Clusters)</span>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex flex-wrap gap-2 sm:gap-2.5 font-mono text-[11px] sm:text-xs">
+                                        <button class="bg-neon-purple text-white font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded flex items-center gap-1.5 sm:gap-2 hover:shadow-[0_0_15px_#8B5CF6] transition-all hover-target">
+                                            <span>▶</span> Run Inference
+                                        </button>
+                                        <button class="bg-white/10 hover:bg-white/20 text-white font-medium px-3 sm:px-4 py-1.5 sm:py-2 rounded flex items-center gap-1.5 sm:gap-2 transition-all hover-target">
+                                            <span>☵</span> Topology Map
+                                        </button>
+                                        <button class="bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded flex items-center gap-1.5 sm:gap-2 transition-all hover-target">
+                                            <span>⚡</span> Prune Quantization
+                                        </button>
+                                    </div>
+
+                                    <div class="border-t border-white/10 pt-2.5 sm:pt-3 flex flex-col gap-2 font-mono text-[11px] sm:text-xs">
+                                        <div class="flex justify-between items-center text-gray-400">
+                                            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest">Active Neural Ingress Nodes</span>
+                                            <span class="text-[9px] sm:text-[10px] text-neon-purple">Distributed Triton Core</span>
+                                        </div>
+
+                                        <div class="flex justify-between items-center bg-black/40 border border-white/5 p-2 sm:p-2.5 rounded">
+                                            <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                                                <div class="w-6 h-6 rounded-full bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-neon-purple text-xs shrink-0">⚡</div>
+                                                <div class="min-w-0">
+                                                    <span class="text-white font-bold block text-xs truncate">FlashAttention-3 Kernel</span>
+                                                    <span class="text-[9px] sm:text-[10px] text-gray-500 block truncate">Cluster-US-East • 1.2ms Sync</span>
+                                                </div>
+                                            </div>
+                                            <span class="text-neon-purple font-bold text-xs sm:text-sm shrink-0 ml-2">99.98% ACC</span>
+                                        </div>
+
+                                        <div class="flex justify-between items-center bg-black/40 border border-white/5 p-2 sm:p-2.5 rounded">
+                                            <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                                                <div class="w-6 h-6 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-neon-cyan text-xs shrink-0">⇄</div>
+                                                <div class="min-w-0">
+                                                    <span class="text-white font-bold block text-xs truncate">FP8 Dynamic Quantization</span>
+                                                    <span class="text-[9px] sm:text-[10px] text-gray-500 block truncate">VRAM: 14.2 GB / 80 GB</span>
+                                                </div>
+                                            </div>
+                                            <span class="text-neon-cyan font-bold text-xs sm:text-sm shrink-0 ml-2">ACTIVE</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 2: AETHER Finished UI -->
+                        <div id="proj-view-prod-2" class="project-view w-full">
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-center w-full">
+                                <!-- Left: Spatial Artifact Preview (Only element on mobile/tablet) -->
+                                <div class="lg:col-span-5 w-full flex justify-center">
+                                    <div class="w-full max-w-[280px] sm:max-w-[340px] aspect-[1.586/1] rounded-2xl p-4 sm:p-5 border border-blue-500/30 bg-gradient-to-tr from-[#0b162c] via-[#070e1e] to-[#04060c] shadow-2xl relative overflow-hidden flex flex-col justify-between">
+                                        <div class="absolute -right-12 -top-12 w-40 h-40 bg-neon-blue/20 rounded-full blur-2xl pointer-events-none"></div>
+
+                                        <div class="flex justify-between items-center relative z-10">
+                                            <div class="flex items-center gap-2">
+                                                <span class="w-2 h-2 rounded-full bg-neon-blue animate-pulse"></span>
+                                                <span class="font-display font-black tracking-widest text-base sm:text-lg text-white">AETHER</span>
+                                            </div>
+                                            <span class="font-mono text-[9px] sm:text-[10px] text-neon-blue border border-neon-blue/40 px-2 py-0.5 rounded bg-neon-blue/10">SPATIAL 3D // PBR</span>
+                                        </div>
+
+                                        <!-- 3D Monolith Polytope Emblem -->
+                                        <div class="relative z-10 my-1 flex items-center gap-3">
+                                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-tr from-blue-900 via-slate-900 to-cyan-900 border border-blue-400/50 relative overflow-hidden flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.5)] shrink-0">
+                                                <svg class="w-6 h-6 text-neon-cyan animate-[spin_8s_linear_infinite]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                                    <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5" stroke-dasharray="2 2"/>
+                                                    <line x1="12" y1="2" x2="12" y2="22"/>
+                                                    <line x1="2" y1="8.5" x2="22" y2="8.5"/>
+                                                    <line x1="2" y1="15.5" x2="22" y2="15.5"/>
+                                                </svg>
+                                            </div>
+                                            <div class="min-w-0">
+                                                <div class="font-mono text-white text-xs sm:text-sm font-bold tracking-wider truncate">MONOLITH CHRONO-01</div>
+                                                <div class="font-mono text-[9px] sm:text-[10px] text-gray-400 flex items-center gap-2 mt-0.5">
+                                                    <span class="text-neon-cyan">184K POLY</span>
+                                                    <span>•</span>
+                                                    <span class="text-blue-300">PBR RAYTRACED</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex justify-between items-end text-[11px] sm:text-xs font-mono relative z-10">
+                                            <div>
+                                                <span class="text-[8px] sm:text-[9px] text-gray-500 uppercase tracking-widest block">Edition Stock</span>
+                                                <span class="text-blue-200 font-bold uppercase tracking-wider text-[11px] sm:text-xs">12 / 50 REMAINING</span>
+                                            </div>
+                                            <div class="text-right">
+                                                <span class="text-[8px] sm:text-[9px] text-gray-500 uppercase tracking-widest block">Valuation</span>
+                                                <span class="text-neon-cyan font-bold text-[11px] sm:text-xs">4.50 ETH</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Right: Telemetry (Hidden on mobile) -->
+                                <div class="hidden lg:flex lg:col-span-7 flex-col justify-between gap-3 sm:gap-4">
+                                    <div>
+                                        <span class="text-[11px] sm:text-xs text-gray-400 uppercase tracking-widest font-mono block">Viewport Engine Performance</span>
+                                        <div class="flex flex-wrap items-baseline gap-2 sm:gap-3 mt-1">
+                                            <span class="text-2xl sm:text-4xl font-display font-black text-white tracking-tight">60.0 <span class="text-xs sm:text-base text-gray-400 font-mono">FPS [16.6ms]</span></span>
+                                            <span class="inline-flex items-center gap-1 text-[11px] sm:text-xs text-blue-400 bg-blue-500/10 px-2 sm:px-2.5 py-0.5 rounded border border-blue-500/20 font-mono">
+                                                 ◈ WebGPU Mesh Shading <span class="text-gray-400 hidden sm:inline">(24 Draw Calls)</span>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex flex-wrap gap-2 sm:gap-2.5 font-mono text-[11px] sm:text-xs">
+                                        <button class="bg-neon-blue text-white font-bold px-3 sm:px-4 py-1.5 sm:py-2 rounded flex items-center gap-1.5 sm:gap-2 hover:shadow-[0_0_15px_#3B82F6] transition-all hover-target">
+                                            <span>⛶</span> Spatial Inspect
+                                        </button>
+                                        <button class="bg-white/10 hover:bg-white/20 text-white font-medium px-3 sm:px-4 py-1.5 sm:py-2 rounded flex items-center gap-1.5 sm:gap-2 transition-all hover-target">
+                                            <span>◈</span> Rotate 360°
+                                        </button>
+                                        <button class="bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 px-3 sm:px-4 py-1.5 sm:py-2 rounded flex items-center gap-1.5 sm:gap-2 transition-all hover-target">
+                                            <span>⊞</span> Acquire Artifact
+                                        </button>
+                                    </div>
+
+                                    <div class="border-t border-white/10 pt-2.5 sm:pt-3 flex flex-col gap-2 font-mono text-[11px] sm:text-xs">
+                                        <div class="flex justify-between items-center text-gray-400">
+                                            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest">Active Shader Pipelines</span>
+                                            <span class="text-[9px] sm:text-[10px] text-neon-blue">WebGL 2.0 / PBR Roughness</span>
+                                        </div>
+
+                                        <div class="flex justify-between items-center bg-black/40 border border-white/5 p-2 sm:p-2.5 rounded">
+                                            <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                                                <div class="w-6 h-6 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-neon-blue text-xs shrink-0">◈</div>
+                                                <div class="min-w-0">
+                                                    <span class="text-white font-bold block text-xs truncate">4K Anisotropic Specular Map</span>
+                                                    <span class="text-[9px] sm:text-[10px] text-gray-500 block truncate">Roughness: 0.12 • Metalness: 0.95</span>
+                                                </div>
+                                            </div>
+                                            <span class="text-neon-blue font-bold text-xs sm:text-sm shrink-0 ml-2">LOADED</span>
+                                        </div>
+
+                                        <div class="flex justify-between items-center bg-black/40 border border-white/5 p-2 sm:p-2.5 rounded">
+                                            <div class="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                                                <div class="w-6 h-6 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-neon-cyan text-xs shrink-0">⛶</div>
+                                                <div class="min-w-0">
+                                                    <span class="text-white font-bold block text-xs truncate">Headless Shopify Inventory Sync</span>
+                                                    <span class="text-[9px] sm:text-[10px] text-gray-500 block truncate">Cart Session #9921 • Synced</span>
+                                                </div>
+                                            </div>
+                                            <span class="text-neon-cyan font-bold text-xs sm:text-sm shrink-0 ml-2">REAL-TIME</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -427,7 +691,7 @@
                                     <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full border border-cyan-400"></div>
                                 </div>
                                 <span class="text-cyan-700 hidden xs:inline">|</span>
-                                <span class="text-cyan-300 text-[11px] sm:text-xs truncate">[CAD: FINTECH_CORE]</span>
+                                <span id="wire-title-url" class="text-cyan-300 text-[11px] sm:text-xs truncate">[CAD: FINTECH_CORE]</span>
                             </div>
                             <div class="text-neon-cyan font-mono text-[10px] sm:text-[11px] shrink-0">
                                 [ <span class="hidden sm:inline">MODE: </span>WIREFRAME ]
@@ -436,7 +700,9 @@
 
                         <!-- Wireframe Body -->
                         <div class="flex-1 p-4 sm:p-6 md:p-8 flex flex-col justify-center cad-grid bg-[#04060c]">
-                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-center w-full">
+                            <!-- Project 0: VAULT CAD Wireframe -->
+                            <div id="proj-view-wire-0" class="project-view active w-full">
+                                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-center w-full">
                                 
                                 <!-- Left: Wireframe Virtual Card (Only element on mobile/tablet) -->
                                 <div class="lg:col-span-5 w-full flex justify-center">
@@ -518,6 +784,129 @@
                                 </div>
 
                             </div>
+                        </div> <!-- End #proj-view-wire-0 -->
+
+                        <!-- Project 1: KRONOS CAD Wireframe -->
+                        <div id="proj-view-wire-1" class="project-view w-full">
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-center w-full">
+                                <!-- Left: CAD NPU Processor (Only element on mobile/tablet) -->
+                                <div class="lg:col-span-5 w-full flex justify-center">
+                                    <div class="w-full max-w-[280px] sm:max-w-[340px] aspect-[1.586/1] rounded-2xl p-4 sm:p-5 border border-dashed border-cyan-400/60 bg-cyan-950/20 relative overflow-hidden flex flex-col justify-between">
+                                        <div class="absolute top-2 right-2 text-[8px] font-mono text-cyan-400/60">[CAD: NPU_REV_3]</div>
+                                        <div class="flex justify-between items-center relative z-10 font-mono text-xs text-cyan-300">
+                                            <span>[SCHEMATIC: KRONOS]</span>
+                                            <span class="text-[9px] sm:text-[10px] border border-cyan-500/40 px-1.5 py-0.5 rounded">[DIE_INTERCONNECT]</span>
+                                        </div>
+                                        <div class="relative z-10 my-1 flex items-center gap-3">
+                                            <div class="w-10 h-10 sm:w-12 sm:h-12 border border-dashed border-cyan-400 rounded-lg flex items-center justify-center shrink-0">
+                                                <span class="text-[9px] text-cyan-300 font-mono">[NPU]</span>
+                                            </div>
+                                            <div class="font-mono text-cyan-300 text-xs">
+                                                <div>[BUS: 512-BIT FP8]</div>
+                                                <div class="text-[9px] text-cyan-400/80 mt-0.5">[CORES: 16,384 TENSORS]</div>
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-between items-end text-[10px] font-mono text-cyan-400 relative z-10 border-t border-cyan-500/20 pt-1.5">
+                                            <span>[CLOCK: 2.4 GHz]</span>
+                                            <span>[P99: 4.2ms]</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Right: CAD Telemetry (Hidden on mobile) -->
+                                <div class="hidden lg:flex lg:col-span-7 flex-col justify-between gap-3 sm:gap-4 font-mono">
+                                    <div>
+                                        <span class="text-[11px] sm:text-xs text-cyan-500 uppercase tracking-widest block">[STATE: COMPUTE_THROUGHPUT]</span>
+                                        <div class="flex flex-wrap items-baseline gap-2 sm:gap-3 mt-1">
+                                            <span class="text-2xl sm:text-4xl font-mono font-bold text-cyan-200 tracking-tight">[284.5K TOK/S]</span>
+                                            <span class="text-[11px] sm:text-xs text-cyan-400 border border-dashed border-cyan-500/40 px-2 py-0.5 rounded">
+                                                [LATENCY: 4.2ms]
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 sm:gap-2.5 text-[11px] sm:text-xs">
+                                        <div class="border border-dashed border-cyan-400 text-cyan-300 px-3 sm:px-4 py-1.5 sm:py-2 rounded">[CMD: INFERENCE_RUN]</div>
+                                        <div class="border border-dashed border-cyan-500/40 text-cyan-400 px-3 sm:px-4 py-1.5 sm:py-2 rounded">[CMD: GRAPH_TRACE]</div>
+                                        <div class="border border-dashed border-cyan-500/40 text-cyan-400 px-3 sm:px-4 py-1.5 sm:py-2 rounded">[CMD: PRUNE_FP8]</div>
+                                    </div>
+                                    <div class="border-t border-cyan-500/20 pt-2.5 sm:pt-3 flex flex-col gap-2 text-[11px] sm:text-xs">
+                                        <div class="flex justify-between items-center text-cyan-500">
+                                            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest">[NODE_METRICS]</span>
+                                            <span class="text-[9px] sm:text-[10px]">[TOPOLOGY: TRITON_CLUSTER]</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-cyan-950/20 border border-cyan-500/30 p-2 sm:p-2.5 rounded border-dashed">
+                                            <span class="text-cyan-200 text-xs truncate">[FLASH_ATTENTION_3_KERNEL]</span>
+                                            <span class="text-cyan-300 font-bold text-xs shrink-0">[1.2ms SYNC]</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-cyan-950/20 border border-cyan-500/30 p-2 sm:p-2.5 rounded border-dashed">
+                                            <span class="text-cyan-200 text-xs truncate">[VRAM_ALLOCATION: 14.2GB]</span>
+                                            <span class="text-cyan-400 font-bold text-xs shrink-0">[ALLOC_OK]</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 2: AETHER CAD Wireframe -->
+                        <div id="proj-view-wire-2" class="project-view w-full">
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 items-center w-full">
+                                <!-- Left: CAD Spatial Polytope (Only element on mobile/tablet) -->
+                                <div class="lg:col-span-5 w-full flex justify-center">
+                                    <div class="w-full max-w-[280px] sm:max-w-[340px] aspect-[1.586/1] rounded-2xl p-4 sm:p-5 border border-dashed border-cyan-400/60 bg-cyan-950/20 relative overflow-hidden flex flex-col justify-between">
+                                        <div class="absolute top-2 right-2 text-[8px] font-mono text-cyan-400/60">[CAD: GEOMETRY_LOD_0]</div>
+                                        <div class="flex justify-between items-center relative z-10 font-mono text-xs text-cyan-300">
+                                            <span>[SCHEMATIC: AETHER_3D]</span>
+                                            <span class="text-[9px] sm:text-[10px] border border-cyan-500/40 px-1.5 py-0.5 rounded">[PBR_WIREFRAME]</span>
+                                        </div>
+                                        <div class="relative z-10 my-1 flex items-center gap-3">
+                                            <div class="w-10 h-10 sm:w-12 sm:h-12 border border-dashed border-cyan-400 rounded-lg flex items-center justify-center shrink-0">
+                                                <span class="text-[9px] text-cyan-300 font-mono">[MESH]</span>
+                                            </div>
+                                            <div class="font-mono text-cyan-300 text-xs">
+                                                <div>[VERTICES: 184,200]</div>
+                                                <div class="text-[9px] text-cyan-400/80 mt-0.5">[NORMALS: COMPACT_FLOAT]</div>
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-between items-end text-[10px] font-mono text-cyan-400 relative z-10 border-t border-cyan-500/20 pt-1.5">
+                                            <span>[FOV: 45° | NEAR: 0.1]</span>
+                                            <span>[DRAW_CALLS: 24]</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Right: CAD Telemetry (Hidden on mobile) -->
+                                <div class="hidden lg:flex lg:col-span-7 flex-col justify-between gap-3 sm:gap-4 font-mono">
+                                    <div>
+                                        <span class="text-[11px] sm:text-xs text-cyan-500 uppercase tracking-widest block">[STATE: SPATIAL_RENDER_ENGINE]</span>
+                                        <div class="flex flex-wrap items-baseline gap-2 sm:gap-3 mt-1">
+                                            <span class="text-2xl sm:text-4xl font-mono font-bold text-cyan-200 tracking-tight">[60.0 FPS / 16.6ms]</span>
+                                            <span class="text-[11px] sm:text-xs text-cyan-400 border border-dashed border-cyan-500/40 px-2 py-0.5 rounded">
+                                                [DRAWCALLS: 24]
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 sm:gap-2.5 text-[11px] sm:text-xs">
+                                        <div class="border border-dashed border-cyan-400 text-cyan-300 px-3 sm:px-4 py-1.5 sm:py-2 rounded">[CMD: WIREFRAME_MESH]</div>
+                                        <div class="border border-dashed border-cyan-500/40 text-cyan-400 px-3 sm:px-4 py-1.5 sm:py-2 rounded">[CMD: SHADER_INSPECT]</div>
+                                        <div class="border border-dashed border-cyan-500/40 text-cyan-400 px-3 sm:px-4 py-1.5 sm:py-2 rounded">[CMD: LOD_OPTIMIZE]</div>
+                                    </div>
+                                    <div class="border-t border-cyan-500/20 pt-2.5 sm:pt-3 flex flex-col gap-2 text-[11px] sm:text-xs">
+                                        <div class="flex justify-between items-center text-cyan-500">
+                                            <span class="text-[9px] sm:text-[10px] uppercase tracking-widest">[SHADER_PIPELINE]</span>
+                                            <span class="text-[9px] sm:text-[10px]">[STATUS: COMPILED]</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-cyan-950/20 border border-cyan-500/30 p-2 sm:p-2.5 rounded border-dashed">
+                                            <span class="text-cyan-200 text-xs truncate">[SPECULAR_ROUGHNESS_MAP]</span>
+                                            <span class="text-cyan-300 font-bold text-xs shrink-0">[4K TEXTURE]</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-cyan-950/20 border border-cyan-500/30 p-2 sm:p-2.5 rounded border-dashed">
+                                            <span class="text-cyan-200 text-xs truncate">[CART_CHECKOUT_PIPELINE]</span>
+                                            <span class="text-cyan-400 font-bold text-xs shrink-0">[SYNC_OK]</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -549,44 +938,192 @@
             </div>
         </section>
 
-        <!-- Deployment Pipeline -->
+        <!-- Deployment Pipeline (Enhanced Dotted Rail) -->
         <section id="pipeline" class="py-20 md:py-32 px-4 sm:px-6 md:px-12 max-w-4xl mx-auto">
-            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl uppercase mb-12 md:mb-16 text-center">
-                <span class="text-neon-cyan">03.</span> Deployment Pipeline
-            </h2>
+            <!-- Section Header -->
+            <div class="mb-14 md:mb-20 text-center">
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight">
+                    <span class="text-neon-cyan">03.</span> Deployment Pipeline
+                </h2>
+                <p class="text-xs sm:text-sm text-gray-400 mt-2 font-mono">
+                    Systematic architecture protocol from initial scoping to live edge propagation.
+                </p>
+            </div>
             
-            <div class="relative flex flex-col gap-10 md:gap-12 pl-6 sm:pl-8 border-l border-white/20 ml-2 sm:ml-0">
+            <!-- Dotted Timeline Rail -->
+            <div class="relative flex flex-col gap-12 md:gap-16 pl-8 sm:pl-12 border-l-2 border-dashed border-white/20 ml-3 sm:ml-4">
+                
+                <!-- Animated Glowing Data Packet moving along the dotted rail -->
+                <div class="pipeline-pulse-beam"></div>
+
                 <!-- Phase 1 -->
-                <div class="relative group cursor-default">
-                    <div class="absolute -left-[33px] sm:-left-[41px] top-1 w-4 h-4 bg-void border-2 border-white/20 rounded-full group-hover:border-neon-cyan group-hover:bg-neon-cyan transition-all duration-300 group-hover:shadow-[0_0_15px_#00F0FF] hover-sound"></div>
-                    <div class="text-xs text-neon-cyan uppercase tracking-widest mb-1">Phase_01</div>
-                    <h3 class="font-display text-xl sm:text-2xl mb-1.5 md:mb-2 text-white/80 group-hover:text-white transition-colors">System Discovery</h3>
-                    <p class="text-xs sm:text-sm text-gray-500">Analyzing brand requirements, technical debt, and defining the precise architecture for the build.</p>
+                <div class="relative group cursor-default p-3 sm:p-4 rounded-xl hover:bg-white/[0.02] border border-transparent hover:border-white/5 transition-all duration-300 hover-target hover-sound">
+                    <!-- Dotted Rail Node -->
+                    <div class="absolute -left-[42px] sm:-left-[58px] top-6 flex items-center justify-center">
+                        <div class="w-5 h-5 rounded-full bg-void border-2 border-white/30 group-hover:border-neon-cyan group-hover:bg-neon-cyan transition-all duration-300 group-hover:shadow-[0_0_20px_#00F0FF] flex items-center justify-center">
+                            <div class="w-1.5 h-1.5 rounded-full bg-neon-cyan opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <div class="absolute w-8 h-8 rounded-full border border-neon-cyan/0 group-hover:border-neon-cyan/40 group-hover:scale-125 transition-all duration-500 pointer-events-none"></div>
+                    </div>
+
+                    <!-- Phase Content -->
+                    <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1">
+                        <div class="text-xs font-mono text-neon-cyan uppercase tracking-widest font-bold flex items-center gap-2">
+                            <span>PHASE_01</span>
+                            <span class="text-gray-600">//</span>
+                            <span class="text-gray-400 font-normal">INITIALIZATION</span>
+                        </div>
+                        <span class="text-[10px] font-mono text-gray-500">[ COMPILATION: 25% ]</span>
+                    </div>
+
+                    <h3 class="font-display text-xl sm:text-2xl md:text-3xl text-white/90 group-hover:text-white transition-colors tracking-tight mb-2">
+                        System Discovery & Architecture
+                    </h3>
+
+                    <p class="text-xs sm:text-sm text-gray-400 font-mono leading-relaxed mb-4 max-w-2xl">
+                        Analyzing brand throughput constraints, identifying legacy bottlenecks, and specifying the zero-runtime cloud architecture prior to writing production code.
+                    </p>
+
+                    <!-- Technical Micro-Deliverables -->
+                    <div class="flex flex-wrap gap-2 text-[11px] font-mono">
+                        <span class="px-2.5 py-1 rounded bg-black/50 border border-white/10 text-gray-300 group-hover:border-neon-cyan/30 group-hover:text-neon-cyan transition-colors">
+                            Architecture Spec v2.4
+                        </span>
+                        <span class="px-2.5 py-1 rounded bg-black/50 border border-white/10 text-gray-300 group-hover:border-neon-cyan/30 group-hover:text-neon-cyan transition-colors">
+                            Threat Modeling Protocol
+                        </span>
+                        <span class="px-2.5 py-1 rounded bg-black/50 border border-white/10 text-gray-300 group-hover:border-neon-cyan/30 group-hover:text-neon-cyan transition-colors">
+                            Entity-Relationship Schema
+                        </span>
+                    </div>
                 </div>
 
                 <!-- Phase 2 -->
-                <div class="relative group cursor-default">
-                    <div class="absolute -left-[33px] sm:-left-[41px] top-1 w-4 h-4 bg-void border-2 border-white/20 rounded-full group-hover:border-neon-purple group-hover:bg-neon-purple transition-all duration-300 group-hover:shadow-[0_0_15px_#8B5CF6] hover-sound"></div>
-                    <div class="text-xs text-neon-purple uppercase tracking-widest mb-1">Phase_02</div>
-                    <h3 class="font-display text-xl sm:text-2xl mb-1.5 md:mb-2 text-white/80 group-hover:text-white transition-colors">UI/UX Protocol</h3>
-                    <p class="text-xs sm:text-sm text-gray-500">Wireframing logic flows and establishing the monolithic visual identity.</p>
+                <div class="relative group cursor-default p-3 sm:p-4 rounded-xl hover:bg-white/[0.02] border border-transparent hover:border-white/5 transition-all duration-300 hover-target hover-sound">
+                    <!-- Dotted Rail Node -->
+                    <div class="absolute -left-[42px] sm:-left-[58px] top-6 flex items-center justify-center">
+                        <div class="w-5 h-5 rounded-full bg-void border-2 border-white/30 group-hover:border-neon-purple group-hover:bg-neon-purple transition-all duration-300 group-hover:shadow-[0_0_20px_#8B5CF6] flex items-center justify-center">
+                            <div class="w-1.5 h-1.5 rounded-full bg-neon-purple opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <div class="absolute w-8 h-8 rounded-full border border-neon-purple/0 group-hover:border-neon-purple/40 group-hover:scale-125 transition-all duration-500 pointer-events-none"></div>
+                    </div>
+
+                    <!-- Phase Content -->
+                    <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1">
+                        <div class="text-xs font-mono text-neon-purple uppercase tracking-widest font-bold flex items-center gap-2">
+                            <span>PHASE_02</span>
+                            <span class="text-gray-600">//</span>
+                            <span class="text-gray-400 font-normal">DESIGN PROTOCOL</span>
+                        </div>
+                        <span class="text-[10px] font-mono text-gray-500">[ COMPILATION: 50% ]</span>
+                    </div>
+
+                    <h3 class="font-display text-xl sm:text-2xl md:text-3xl text-white/90 group-hover:text-white transition-colors tracking-tight mb-2">
+                        Systematic UI/UX & Monolith Tokens
+                    </h3>
+
+                    <p class="text-xs sm:text-sm text-gray-400 font-mono leading-relaxed mb-4 max-w-2xl">
+                        Wireframing user psychology logic paths and generating strict Figma design token systems paired with cybernetic kinetic feedback models.
+                    </p>
+
+                    <!-- Technical Micro-Deliverables -->
+                    <div class="flex flex-wrap gap-2 text-[11px] font-mono">
+                        <span class="px-2.5 py-1 rounded bg-black/50 border border-white/10 text-gray-300 group-hover:border-neon-purple/30 group-hover:text-neon-purple transition-colors">
+                            Monolithic Design System
+                        </span>
+                        <span class="px-2.5 py-1 rounded bg-black/50 border border-white/10 text-gray-300 group-hover:border-neon-purple/30 group-hover:text-neon-purple transition-colors">
+                            Figma Token Architecture
+                        </span>
+                        <span class="px-2.5 py-1 rounded bg-black/50 border border-white/10 text-gray-300 group-hover:border-neon-purple/30 group-hover:text-neon-purple transition-colors">
+                            Synthesizer Audio Feedback
+                        </span>
+                    </div>
                 </div>
 
                 <!-- Phase 3 -->
-                <div class="relative group cursor-default">
-                    <div class="absolute -left-[33px] sm:-left-[41px] top-1 w-4 h-4 bg-void border-2 border-white/20 rounded-full group-hover:border-neon-blue group-hover:bg-neon-blue transition-all duration-300 group-hover:shadow-[0_0_15px_#3B82F6] hover-sound"></div>
-                    <div class="text-xs text-neon-blue uppercase tracking-widest mb-1">Phase_03</div>
-                    <h3 class="font-display text-xl sm:text-2xl mb-1.5 md:mb-2 text-white/80 group-hover:text-white transition-colors">Development & Engine</h3>
-                    <p class="text-xs sm:text-sm text-gray-500">Writing clean, scalable code. Connecting databases, APIs, and rendering the front-end interface.</p>
+                <div class="relative group cursor-default p-3 sm:p-4 rounded-xl hover:bg-white/[0.02] border border-transparent hover:border-white/5 transition-all duration-300 hover-target hover-sound">
+                    <!-- Dotted Rail Node -->
+                    <div class="absolute -left-[42px] sm:-left-[58px] top-6 flex items-center justify-center">
+                        <div class="w-5 h-5 rounded-full bg-void border-2 border-white/30 group-hover:border-neon-blue group-hover:bg-neon-blue transition-all duration-300 group-hover:shadow-[0_0_20px_#3B82F6] flex items-center justify-center">
+                            <div class="w-1.5 h-1.5 rounded-full bg-neon-blue opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <div class="absolute w-8 h-8 rounded-full border border-neon-blue/0 group-hover:border-neon-blue/40 group-hover:scale-125 transition-all duration-500 pointer-events-none"></div>
+                    </div>
+
+                    <!-- Phase Content -->
+                    <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1">
+                        <div class="text-xs font-mono text-neon-blue uppercase tracking-widest font-bold flex items-center gap-2">
+                            <span>PHASE_03</span>
+                            <span class="text-gray-600">//</span>
+                            <span class="text-gray-400 font-normal">CORE ENGINE</span>
+                        </div>
+                        <span class="text-[10px] font-mono text-gray-500">[ COMPILATION: 75% ]</span>
+                    </div>
+
+                    <h3 class="font-display text-xl sm:text-2xl md:text-3xl text-white/90 group-hover:text-white transition-colors tracking-tight mb-2">
+                        Development & Scalable Engine
+                    </h3>
+
+                    <p class="text-xs sm:text-sm text-gray-400 font-mono leading-relaxed mb-4 max-w-2xl">
+                        Writing type-safe, ultra-scalable front-end code with Next.js 15, Rust edge microservices, and real-time bi-directional WebSockets.
+                    </p>
+
+                    <!-- Technical Micro-Deliverables -->
+                    <div class="flex flex-wrap gap-2 text-[11px] font-mono">
+                        <span class="px-2.5 py-1 rounded bg-black/50 border border-white/10 text-gray-300 group-hover:border-neon-blue/30 group-hover:text-neon-blue transition-colors">
+                            Next.js 15 App Router
+                        </span>
+                        <span class="px-2.5 py-1 rounded bg-black/50 border border-white/10 text-gray-300 group-hover:border-neon-blue/30 group-hover:text-neon-blue transition-colors">
+                            Dockerized Multi-Region APIs
+                        </span>
+                        <span class="px-2.5 py-1 rounded bg-black/50 border border-white/10 text-gray-300 group-hover:border-neon-blue/30 group-hover:text-neon-blue transition-colors">
+                            Strict End-to-End Testing
+                        </span>
+                    </div>
                 </div>
 
                 <!-- Phase 4 -->
-                <div class="relative group cursor-default">
-                    <div class="absolute -left-[33px] sm:-left-[41px] top-1 w-4 h-4 bg-void border-2 border-white/20 rounded-full group-hover:border-white group-hover:bg-white transition-all duration-300 hover-sound"></div>
-                    <div class="text-xs text-white uppercase tracking-widest mb-1">Phase_04</div>
-                    <h3 class="font-display text-xl sm:text-2xl mb-1.5 md:mb-2 text-white/80 group-hover:text-white transition-colors">Live Deployment</h3>
-                    <p class="text-xs sm:text-sm text-gray-500">Pushing the application to production environments. Final SEO indexing and launch.</p>
+                <div class="relative group cursor-default p-3 sm:p-4 rounded-xl hover:bg-white/[0.02] border border-transparent hover:border-white/5 transition-all duration-300 hover-target hover-sound">
+                    <!-- Dotted Rail Node -->
+                    <div class="absolute -left-[42px] sm:-left-[58px] top-6 flex items-center justify-center">
+                        <div class="w-5 h-5 rounded-full bg-void border-2 border-white/30 group-hover:border-emerald-400 group-hover:bg-emerald-400 transition-all duration-300 group-hover:shadow-[0_0_20px_#10B981] flex items-center justify-center">
+                            <div class="w-1.5 h-1.5 rounded-full bg-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        </div>
+                        <div class="absolute w-8 h-8 rounded-full border border-emerald-400/0 group-hover:border-emerald-400/40 group-hover:scale-125 transition-all duration-500 pointer-events-none"></div>
+                    </div>
+
+                    <!-- Phase Content -->
+                    <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1">
+                        <div class="text-xs font-mono text-emerald-400 uppercase tracking-widest font-bold flex items-center gap-2">
+                            <span>PHASE_04</span>
+                            <span class="text-gray-600">//</span>
+                            <span class="text-gray-400 font-normal">DEPLOYMENT</span>
+                        </div>
+                        <span class="text-[10px] font-mono text-emerald-400 font-bold">[ LIVE DEPLOYED: 100% ]</span>
+                    </div>
+
+                    <h3 class="font-display text-xl sm:text-2xl md:text-3xl text-white/90 group-hover:text-white transition-colors tracking-tight mb-2">
+                        Global Edge Propagation & SEO
+                    </h3>
+
+                    <p class="text-xs sm:text-sm text-gray-400 font-mono leading-relaxed mb-4 max-w-2xl">
+                        Deploying production builds to worldwide edge POPs with sub-50ms latency, achieving 100/100 Lighthouse performance metrics, and organic indexation.
+                    </p>
+
+                    <!-- Technical Micro-Deliverables -->
+                    <div class="flex flex-wrap gap-2 text-[11px] font-mono">
+                        <span class="px-2.5 py-1 rounded bg-black/50 border border-white/10 text-gray-300 group-hover:border-emerald-400/30 group-hover:text-emerald-400 transition-colors">
+                            Cloudflare Enterprise Edge
+                        </span>
+                        <span class="px-2.5 py-1 rounded bg-black/50 border border-white/10 text-gray-300 group-hover:border-emerald-400/30 group-hover:text-emerald-400 transition-colors">
+                            100/100 Core Web Vitals
+                        </span>
+                        <span class="px-2.5 py-1 rounded bg-black/50 border border-white/10 text-gray-300 group-hover:border-emerald-400/30 group-hover:text-emerald-400 transition-colors">
+                            Automated Schema.org Routing
+                        </span>
+                    </div>
                 </div>
+
             </div>
         </section>
     </main>
@@ -595,6 +1132,16 @@
     <footer id="contact" class="pt-16 md:pt-24 border-t border-white/5 bg-[#050505] relative z-20">
         <div class="max-w-[1600px] mx-auto w-full">
             
+            <!-- Live Availability Status Banner -->
+            <div class="flex justify-center mb-6 md:mb-8 px-4">
+                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 font-mono text-[11px] sm:text-xs tracking-widest uppercase shadow-[0_0_20px_rgba(52,211,153,0.15)]">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#34d399]"></span>
+                    <span>SYSTEM CAPACITY: 2 SLOTS OPEN FOR Q4</span>
+                    <span class="text-white/30 hidden sm:inline">•</span>
+                    <span class="text-white/60 hidden sm:inline">GLOBAL ARCHITECTURE DEPLOYMENT</span>
+                </div>
+            </div>
+
             <!-- Massive CTA -->
             <div class="text-center px-4 w-full overflow-hidden mb-8 md:mb-12 hover-target cursor-pointer click-sound">
                 <a href="#" onclick="openTerminal(); return false;" class="cta-text font-heading font-bold uppercase block w-full text-center text-[clamp(2.5rem,10vw,14rem)] leading-[0.8] tracking-tighter break-words">
