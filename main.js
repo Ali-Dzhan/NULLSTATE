@@ -269,34 +269,54 @@ const splitHandle = document.getElementById('slider-handle');
 
 let isSplitDragging = false;
 
-function updateWireframeWidth() {
+function updateWireframeDimensions() {
     if (!splitSlider || !wireframeInner) return;
     wireframeInner.style.width = `${splitSlider.offsetWidth}px`;
+    wireframeInner.style.height = `${splitSlider.offsetHeight}px`;
 }
 
-function setSplitPosition(clientX) {
+function setSplitPosition(clientY) {
     if (!splitSlider || !wireframePanel || !splitHandle) return;
     const rect = splitSlider.getBoundingClientRect();
-    let pos = clientX - rect.left;
-    pos = Math.max(0, Math.min(pos, rect.width));
-    const percentage = (pos / rect.width) * 100;
+    let pos = clientY - rect.top;
+    pos = Math.max(0, Math.min(pos, rect.height));
+    const percentage = (pos / rect.height) * 100;
 
-    wireframePanel.style.width = `${percentage}%`;
-    splitHandle.style.left = `${percentage}%`;
+    wireframePanel.style.height = `${percentage}%`;
+    splitHandle.style.top = `${percentage}%`;
+}
+
+function setSliderPercentage(percentage) {
+    if (!splitSlider || !wireframePanel || !splitHandle) return;
+    wireframePanel.style.transition = 'height 0.35s cubic-bezier(0.4, 0, 0.2, 1)';
+    splitHandle.style.transition = 'top 0.35s cubic-bezier(0.4, 0, 0.2, 1)';
+    
+    wireframePanel.style.height = `${percentage}%`;
+    splitHandle.style.top = `${percentage}%`;
+    playClickSound();
+
+    setTimeout(() => {
+        if (wireframePanel && splitHandle) {
+            wireframePanel.style.transition = '';
+            splitHandle.style.transition = '';
+        }
+    }, 360);
 }
 
 if (splitSlider) {
-    window.addEventListener('resize', updateWireframeWidth);
+    window.addEventListener('resize', updateWireframeDimensions);
     window.addEventListener('orientationchange', () => {
-        setTimeout(updateWireframeWidth, 150);
+        setTimeout(updateWireframeDimensions, 150);
     });
-    window.addEventListener('load', updateWireframeWidth);
-    setTimeout(updateWireframeWidth, 50);
+    window.addEventListener('load', updateWireframeDimensions);
+    setTimeout(updateWireframeDimensions, 50);
 
     splitSlider.addEventListener('mousedown', (e) => {
         isSplitDragging = true;
+        if (wireframePanel) wireframePanel.style.transition = '';
+        if (splitHandle) splitHandle.style.transition = '';
         playClickSound();
-        setSplitPosition(e.clientX);
+        setSplitPosition(e.clientY);
     });
 
     window.addEventListener('mouseup', () => {
@@ -305,14 +325,16 @@ if (splitSlider) {
 
     window.addEventListener('mousemove', (e) => {
         if (isSplitDragging) {
-            setSplitPosition(e.clientX);
+            setSplitPosition(e.clientY);
         }
     });
 
     splitSlider.addEventListener('touchstart', (e) => {
         isSplitDragging = true;
+        if (wireframePanel) wireframePanel.style.transition = '';
+        if (splitHandle) splitHandle.style.transition = '';
         playClickSound();
-        setSplitPosition(e.touches[0].clientX);
+        setSplitPosition(e.touches[0].clientY);
     }, { passive: true });
 
     window.addEventListener('touchend', () => {
@@ -321,9 +343,10 @@ if (splitSlider) {
 
     window.addEventListener('touchmove', (e) => {
         if (isSplitDragging) {
-            setSplitPosition(e.touches[0].clientX);
+            if (e.cancelable) e.preventDefault();
+            setSplitPosition(e.touches[0].clientY);
         }
-    }, { passive: true });
+    }, { passive: false });
 }
 
 /* === Mobile Navigation Drawer === */
